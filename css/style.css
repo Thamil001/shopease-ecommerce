@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+  padding: 0%;
+  margin: 0%;
+}
+
+.topBar {
+  display: flex;
+  justify-content:space-around;
+  padding: 20px;
+  align-items: center;
+  background-color: #fdfdfd;
+  position: sticky;
+  font-family: sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.header>img {
+  width: 26px;
+  height: 26px;
+}
+
+.title {
+  font-size:x-large;
+}
+
+.title>:last-child{
+  color: #fc4810;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+li{
+  padding: 6px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  font-size: small;
+  font-weight: bold;
+}
+
+nav ul li a.active {
+    color: #F97316;
+    font-weight: bold;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  padding: 6px 16px;
+  gap: 2px;
+  background-color: #f2f2f2;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.searchBar>:first-child{
+  border: none;
+  outline: none;
+  background-color: #f2f2f2;
+  padding: 2px;
+  font-size:smaller;
+}
+
+.searchBar>:last-child{
+  width: 16px;
+  height: 16px;
+}
+
+.nav_icons {
+  display: flex;
+  gap: 24px;
+}
+.icon-container{
+  position: relative;
+  display: inline-block;
+}
+
+.badge {
+    position: absolute;
+
+    top: -8px;
+    right: -8px;
+
+    width: 18px;
+    height: 18px;
+
+    background: #fc4810;
+    color: white;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.icons {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
