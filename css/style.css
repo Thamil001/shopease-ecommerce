@@ -6,7 +6,7 @@
 
 .topBar {
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   padding: 20px;
   align-items: center;
   background-color: #fdfdfd;
@@ -19,16 +19,16 @@
   align-items: center;
 }
 
-.header>img {
+.header > img {
   width: 26px;
   height: 26px;
 }
 
 .title {
-  font-size:x-large;
+  font-size: x-large;
 }
 
-.title>:last-child{
+.title > :last-child {
   color: #fc4810;
 }
 
@@ -37,7 +37,7 @@ ul {
   display: flex;
 }
 
-li{
+li {
   padding: 6px;
 }
 
@@ -49,8 +49,8 @@ a {
 }
 
 nav ul li a.active {
-    color: #F97316;
-    font-weight: bold;
+  color: #f97316;
+  font-weight: bold;
 }
 
 .searchBar {
@@ -63,15 +63,15 @@ nav ul li a.active {
   cursor: pointer;
 }
 
-.searchBar>:first-child{
+.searchBar > :first-child {
   border: none;
   outline: none;
   background-color: #f2f2f2;
   padding: 2px;
-  font-size:smaller;
+  font-size: smaller;
 }
 
-.searchBar>:last-child{
+.searchBar > :last-child {
   width: 16px;
   height: 16px;
 }
@@ -80,31 +80,31 @@ nav ul li a.active {
   display: flex;
   gap: 24px;
 }
-.icon-container{
+.icon-container {
   position: relative;
   display: inline-block;
 }
 
 .badge {
-    position: absolute;
+  position: absolute;
 
-    top: -8px;
-    right: -8px;
+  top: -8px;
+  right: -8px;
 
-    width: 18px;
-    height: 18px;
+  width: 18px;
+  height: 18px;
 
-    background: #fc4810;
-    color: white;
+  background: #fc4810;
+  color: white;
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    font-size: 11px;
-    font-weight: bold;
+  font-size: 11px;
+  font-weight: bold;
 }
 
 .icons {
@@ -113,3 +113,67 @@ nav ul li a.active {
   height: 18px;
 }
 
+/* Banner */
+.banner {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+img {
+  width: 100%;
+  height: 60vh;
+  display: block;
+}
+
+.banner > div {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.banner > div > button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+  border:none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner>div>:first-child{
+  transform: scale(-1);
+}
+
+.banner>div>button>img{
+  width: 20px;
+  height: 20px;
+  
+}
+
+.banner > :last-child {
+  display: flex;
+  gap: 4px;
+  position: absolute;
+  left: 22%;
+  top: 86%;
+  transform: translateX(-50%);
+  background-color: #fd5409;
+  padding: 16px;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.banner > :last-child > :first-child {
+  width: 18px;
+  height: 18px;
+}
