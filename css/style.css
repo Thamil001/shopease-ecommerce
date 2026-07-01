@@ -3,14 +3,17 @@
   padding: 0%;
   margin: 0%;
 }
-
+#topBar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 .topBar {
   display: flex;
   justify-content: space-around;
   padding: 20px;
   align-items: center;
   background-color: #fdfdfd;
-  position: sticky;
   font-family: sans-serif;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -44,8 +47,8 @@ li {
 a {
   color: black;
   text-decoration: none;
-  font-size: small;
-  font-weight: bold;
+  font-size:small;
+  font-weight:bolder;
 }
 
 nav ul li a.active {
@@ -140,20 +143,47 @@ img {
   height: 50px;
   border-radius: 50%;
   background-color: white;
-  border:none;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  z-index: 4;
 }
 
-.banner>div>:first-child{
+.banner > div > :first-child {
   transform: scale(-1);
 }
 
-.banner>div>button>img{
+.banner > div > button > img {
   width: 20px;
   height: 20px;
+}
+
+.banner >.position{
+  position: absolute;
+  left: 50%;
+  top: 86%; 
+}
+.banner>.position{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: 2px;
+  gap: 4px;
+  border-radius: 2px;
   
+}
+.pos-index {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: #afb1b2;
+}
+
+.pos-index.active {
+  background: #fc4810;
 }
 
 .banner > :last-child {
@@ -171,9 +201,51 @@ img {
   color: white;
   font-family: sans-serif;
   font-weight: bold;
+  bottom: 2%;
+  cursor: pointer;
 }
 
 .banner > :last-child > :first-child {
   width: 18px;
   height: 18px;
+}
+
+/* Shop Category */
+.shop-category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 2px;
+}
+
+.shop-category > :first-child {
+  font-family: sans-serif;
+  font-weight: 800;
+  font-size: x-large;
+}
+
+.cart-row {
+  display: flex;
+  gap: 16px;
+}
+
+.cart {
+  margin-bottom: 10px;
+  padding: 4px;
+  width: 200px;
+  background-color: #e1e1e1;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.cart > :first-child {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+}
+.cart > :last-child {
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 600;
 }
