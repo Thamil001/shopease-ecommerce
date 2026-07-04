@@ -47,8 +47,8 @@ li {
 a {
   color: black;
   text-decoration: none;
-  font-size:small;
-  font-weight:bolder;
+  font-size: small;
+  font-weight: bolder;
 }
 
 nav ul li a.active {
@@ -160,12 +160,12 @@ img {
   height: 20px;
 }
 
-.banner >.position{
+.banner > .position {
   position: absolute;
   left: 50%;
-  top: 86%; 
+  top: 86%;
 }
-.banner>.position{
+.banner > .position {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -173,7 +173,6 @@ img {
   padding: 2px;
   gap: 4px;
   border-radius: 2px;
-  
 }
 .pos-index {
   height: 10px;
@@ -211,7 +210,8 @@ img {
 }
 
 /* Shop Category */
-.shop-category,.featured-products {
+.shop-category,
+.featured-products {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -219,13 +219,15 @@ img {
   padding: 2px;
 }
 
-.shop-category > :first-child,.featured-products>:first-child {
+.shop-category > :first-child,
+.featured-products > :first-child {
   font-family: sans-serif;
   font-weight: 800;
   font-size: x-large;
 }
 
-.cart-row,.featured-cart-row {
+.cart-row,
+.featured-cart-row {
   display: flex;
   gap: 16px;
 }
@@ -251,16 +253,16 @@ img {
 }
 
 /* Featured products cart*/
-.featured-products>:first-child{
+.featured-products > :first-child {
   text-align: center;
 }
-.featured-cart-row { 
+.featured-cart-row {
   gap: 8px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.featured-products-cart{
+.featured-products-cart {
   margin-bottom: 10px;
   padding: 16px;
   width: 200px;
@@ -280,7 +282,7 @@ img {
   border-radius: 8px;
 }
 
-.cart-image-container>:first-child {
+.cart-image-container > :first-child {
   background-color: #f83632;
   padding: 4px 4px;
   border-radius: 2px;
@@ -292,13 +294,13 @@ img {
   z-index: 10px;
 }
 
-.cart-image-container>.cart-image {
+.cart-image-container > .cart-image {
   width: 100%;
-  height:150px;
-  object-fit:contain;
+  height: 150px;
+  object-fit: contain;
 }
 
-.cart-image-container>:last-child{
+.cart-image-container > :last-child {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -312,7 +314,8 @@ img {
   z-index: 10px;
 }
 
-.cart-image-container>:last-child>:first-child,.featured-products-cart>:last-child>:first-child {
+.cart-image-container > :last-child > :first-child,
+.featured-products-cart > :last-child > :first-child {
   width: 16px;
   height: 16px;
 }
@@ -323,13 +326,14 @@ img {
   gap: 4px;
 }
 
-.product-details>.cart-title{
+.product-details > .cart-title {
   font-family: sans-serif;
   font-weight: 700;
-  font-size:medium;
+  font-size: medium;
 }
 
-.rating,.price {
+.rating,
+.price {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -353,21 +357,85 @@ img {
 
 .oldPrice {
   text-decoration: line-through;
-  font-size: 14px ;
-  color:rgb(165, 160, 160);
+  font-size: 14px;
+  color: rgb(165, 160, 160);
 }
 
-.featured-products-cart>:last-child{
+.featured-products-cart > :last-child {
   display: flex;
-  justify-content:center;
+  justify-content: center;
   gap: 8px;
   padding: 10px;
   background-color: #f1f1f1;
   box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
-  cursor: pointer;  
+  cursor: pointer;
   font-size: 16px;
   font-weight: 600;
   font-family: sans-serif;
   margin-top: 12px;
 }
+
+.time-banner {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px;
+  height: fit-content;
+  background: linear-gradient(#fc5816, #f71f51);
+}
+.time-banner > :first-child {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.time-banner > :first-child > :first-child {
+  width: 60px;
+  height: 60px;
+}
+.time-banner > :first-child >:nth-child(2)>:first-child{
+  font-family: sans-serif;
+  font-size: x-large;
+  font-weight:bold;
+  color: white;
+}
+
+.time-banner > :first-child >:nth-child(2)>:last-child {
+  font-family: sans-serif;
+  font-size:large;
+  font-weight:600;
+  color: white;
+
+}
+
+.time-container {
+  display: flex;
+  gap: 24px;
+}
+
+.time-box {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 16px 24px;
+  font-family: sans-serif;
+  font-size: x-large;
+  font-weight: bolder;
+  border-radius: 6px;
+}
+
+.time-box>:first-child{
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  justify-content:end;
+  align-items: center;
+}
+
+.time-box>:first-child>:last-child {
+  font-weight: 600;
+  font-size: medium;
+}
+
+
+
+
