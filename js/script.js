@@ -37,7 +37,6 @@ function banner() {
       const leftBtn = document.getElementById("left-btn");
       const rightBtn = document.getElementById("right-btn");
       const shopNow = document.getElementById("shop-now");
-
       const position = document.querySelector(".position");
 
       const div = document.createElement("div");
@@ -298,54 +297,65 @@ function futuredCategories() {
   });
 }
 
-function timeBanner() {
-  const timeBanner = document.querySelector(".time-container");
-  const timeBox_Minute = document.createElement("div");
-  timeBox_Minute.className = "time-box";
-  const timeBox_Hour = document.createElement("div");
-  timeBox_Hour.className = "time-box";
-  const timeBox_second = document.createElement("div");
-  timeBox_second.className = "time-box";
+function flashBanner() {
+  fetch("../components/flashBanner.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.querySelector(".flash-banner").innerHTML = data
+      const timeBanner = document.querySelector(".time-container");
+      const timeBox_Minute = document.createElement("div");
+      timeBox_Minute.className = "time-box";
+      const timeBox_Hour = document.createElement("div");
+      timeBox_Hour.className = "time-box";
+      const timeBox_second = document.createElement("div");
+      timeBox_second.className = "time-box";
+      const shopNow = document.querySelector(".shop-now");
 
-  setInterval(() => {
-    const now = new Date();
-    const formatter = new Intl.DateTimeFormat("en-IN", {
-      timeZone: "Asia/Kolkata",
-      hour: "numeric",
-      minute: "numeric",
-      second: "numeric",
-      hour12: true,
-    });
-    const parts = formatter.formatToParts(now);
+      shopNow.addEventListener("click", () => {
+        console.log("Shop Clicked");
+        window.location.href = "products.html";
+      });
 
-    const hour = parts.find((p) => p.type === "hour").value;
-    const minute = parts.find((p) => p.type === "minute").value;
-    const second = parts.find((p) => p.type === "second").value;
-    timeBox_Hour.innerHTML = `
+      setInterval(() => {
+        const now = new Date();
+        const formatter = new Intl.DateTimeFormat("en-IN", {
+          timeZone: "Asia/Kolkata",
+          hour: "numeric",
+          minute: "numeric",
+          second: "numeric",
+          hour12: true,
+        });
+        const parts = formatter.formatToParts(now);
+
+        const hour = parts.find((p) => p.type === "hour").value;
+        const minute = parts.find((p) => p.type === "minute").value;
+        const second = parts.find((p) => p.type === "second").value;
+        timeBox_Hour.innerHTML = `
     <div>
         <span>${hour - 5}</span>
         <span>Hour</span>
     </div>
 `;
 
-    timeBox_Minute.innerHTML = `
+        timeBox_Minute.innerHTML = `
     <div >
         <span>${minute}</span>
         <span>Minute</span>
     </div>
-`;;
-    timeBox_second.innerHTML = `
+`;
+        timeBox_second.innerHTML = `
     <div>
-        <div>${60-second}</div>
+        <div>${60 - second}</div>
         <div>Seconds</div>
     </div>
-`;;
-    timeBanner.append(timeBox_Hour, timeBox_Minute, timeBox_second);
-  }, 1000);
+`;
+        timeBanner.append(timeBox_Hour, timeBox_Minute, timeBox_second);
+      }, 1000);
+    });
 }
 
 topBar();
 banner();
 shopCategories();
 futuredCategories();
-timeBanner();
+flashBanner();
