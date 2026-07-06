@@ -301,7 +301,7 @@ function flashBanner() {
   fetch("../components/flashBanner.html")
     .then((response) => response.text())
     .then((data) => {
-      document.querySelector(".flash-banner").innerHTML = data
+      document.querySelector(".flash-banner").innerHTML = data;
       const timeBanner = document.querySelector(".time-container");
       const timeBox_Minute = document.createElement("div");
       timeBox_Minute.className = "time-box";
@@ -332,7 +332,7 @@ function flashBanner() {
         const second = parts.find((p) => p.type === "second").value;
         timeBox_Hour.innerHTML = `
     <div>
-        <span>${hour - 5}</span>
+        <span>${hour}</span>
         <span>Hour</span>
     </div>
 `;
@@ -353,6 +353,60 @@ function flashBanner() {
       }, 1000);
     });
 }
+
+const serviceData = [
+  {
+    img: "../images/fast-delivery.png",
+    title: "Free Delivery",
+    content: "Free Shipping on all orders above ₹499",
+  },
+  {
+    img: "../images/securePay.png",
+    title: "Secure Payment",
+    content: "100% Secure Payment guarantee",
+  },
+  {
+    img: "../images/back.png",
+    title: "Easy Returns",
+    content: "30 Days Easy return policy",
+  },
+  {
+    img: "../images/customerCare.png",
+    title: "24/7 Support",
+    content: "Dedicated support whenever you need",
+  },
+];
+
+
+const services = document.querySelector(".services");
+
+const wrapper = document.createElement("div");
+
+serviceData.forEach((data) => {
+  const container = document.createElement("div");
+
+  const img = document.createElement("img");
+  img.src = data.img;
+  img.alt = data.title;
+
+  const textDiv = document.createElement("div");
+
+  const title = document.createElement("div");
+  title.className = "title-service";
+  title.textContent = data.title;
+
+  const content = document.createElement("div");
+  content.className = "service-content";
+  content.textContent = data.content;
+
+  textDiv.append(title, content);
+  container.append(img, textDiv);
+
+  wrapper.appendChild(container);
+});
+
+services.appendChild(wrapper);
+
 
 topBar();
 banner();

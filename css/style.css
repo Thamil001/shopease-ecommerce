@@ -206,9 +206,7 @@ img {
   font-weight: bold;
   bottom: 2%;
   cursor: pointer;
-
 }
-
 
 .banner > :last-child > :first-child {
   width: 18px;
@@ -226,7 +224,8 @@ img {
 }
 
 .shop-category > :first-child,
-.featured-products > :first-child {
+.featured-products > :first-child,
+.services > :first-child {
   font-family: sans-serif;
   font-weight: 800;
   font-size: x-large;
@@ -384,7 +383,7 @@ img {
 
 /* Flash Banner */
 .flash-banner {
-  padding:4px 28px;
+  padding: 4px 28px;
 }
 
 .time-banner {
@@ -405,19 +404,18 @@ img {
   width: 60px;
   height: 60px;
 }
-.time-banner > :first-child >:nth-child(2)>:first-child{
+.time-banner > :first-child > :nth-child(2) > :first-child {
   font-family: sans-serif;
   font-size: x-large;
-  font-weight:bold;
+  font-weight: bold;
   color: white;
 }
 
-.time-banner > :first-child >:nth-child(2)>:last-child {
+.time-banner > :first-child > :nth-child(2) > :last-child {
   font-family: sans-serif;
-  font-size:large;
-  font-weight:600;
+  font-size: large;
+  font-weight: 600;
   color: white;
-
 }
 
 .time-container {
@@ -436,20 +434,20 @@ img {
   border-radius: 6px;
 }
 
-.time-box>:first-child{
+.time-box > :first-child {
   display: flex;
   gap: 8px;
   flex-direction: column;
-  justify-content:end;
+  justify-content: end;
   align-items: center;
 }
 
-.time-box>:first-child>:last-child {
+.time-box > :first-child > :last-child {
   font-weight: 600;
   font-size: medium;
 }
 
-.time-banner>:last-child>:first-child {
+.time-banner > :last-child > :first-child {
   display: flex;
   cursor: pointer;
   padding: 10px 18px;
@@ -464,10 +462,50 @@ img {
   align-items: center;
   justify-content: space-between;
 }
-.time-banner>:last-child>:first-child>img {
+
+.time-banner > :last-child > :first-child > img {
   width: 20px;
   height: 28px;
 }
 
+.services {
+  text-align: center;
+  margin-bottom: 8px;
+}
 
+.services > :last-child {
+  display: flex;
+  justify-content: space-around;
+  padding:16px 16px;
+}
 
+.services > :last-child > div {
+  margin-bottom: 10px;
+  padding: 16px;
+  width: 260px;
+  background-color: #f9fafa;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.2);
+}
+
+.title-service {
+  font-family: sans-serif;
+  font-size: medium;
+  font-weight: bolder;
+  padding: 3px;
+}
+.service-content{
+  font-family: sans-serif;
+  font-size: small;
+  font-weight: 500;
+}
+
+.services > div:last-child > div > img {
+  width: 44px;
+  height: 44px;
+}
