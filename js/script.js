@@ -377,39 +377,173 @@ const serviceData = [
   },
 ];
 
+function service() {
+  const services = document.querySelector(".services");
 
-const services = document.querySelector(".services");
+  const wrapper = document.createElement("div");
 
-const wrapper = document.createElement("div");
+  serviceData.forEach((data) => {
+    const container = document.createElement("div");
 
-serviceData.forEach((data) => {
-  const container = document.createElement("div");
+    const img = document.createElement("img");
+    img.src = data.img;
+    img.alt = data.title;
 
-  const img = document.createElement("img");
-  img.src = data.img;
-  img.alt = data.title;
+    const textDiv = document.createElement("div");
 
-  const textDiv = document.createElement("div");
+    const title = document.createElement("div");
+    title.className = "title-service";
+    title.textContent = data.title;
 
-  const title = document.createElement("div");
-  title.className = "title-service";
-  title.textContent = data.title;
+    const content = document.createElement("div");
+    content.className = "service-content";
+    content.textContent = data.content;
 
-  const content = document.createElement("div");
-  content.className = "service-content";
-  content.textContent = data.content;
+    textDiv.append(title, content);
+    container.append(img, textDiv);
 
-  textDiv.append(title, content);
-  container.append(img, textDiv);
+    wrapper.appendChild(container);
+  });
 
-  wrapper.appendChild(container);
-});
+  services.appendChild(wrapper);
+}
 
-services.appendChild(wrapper);
+const products = [
+  {
+      productName: "Shoes",
+      image: "./images/shoe.png",
+      color: "#FFF8DC",
+      offer: "5%",
+      price: "₹4,959",
+      oldPrice: "₹5,299",
+    },
+    {
+      productName: "Hoodi",
+      image: "./images/hoodi.png",
+      color: "#FFE4E1",
+      offer: "10%",
+      price: "₹3,829",
+      oldPrice: "₹4,299",
+    },
+    {
+      productName: "Watch",
+      image: "./images/watch.png",
+      color: "#E8F5E9",
+      offer: "18%",
+      price: "₹1,699",
+      oldPrice: "₹2,099",
+    },
+    {
+      productName: "Bags",
+      image: "./images/handBag.png",
+      color: "#F3E5F5",
+      offer: "35%",
+      price: "₹6,939",
+      oldPrice: "₹8,299",
+    },
+    {
+      productName: "Accessories",
+      image: "./images/sunGlass.png",
+      color: "#FFF3E0",
+      offer: "20%",
+      price: "₹4,949",
+      oldPrice: "₹5,999",
+    },
+    {
+      productName: "Shoes",
+      image: "./images/shoe.png",
+      color: "#FFF8DC",
+      offer: "5%",
+      price: "₹4,959",
+      oldPrice: "₹5,299",
+    },
+  ];
 
+  const cartRow = document.querySelector(".best-selling-products");
+
+  products.forEach((product) => {
+    // Card
+    const card = document.createElement("div");
+    card.className = "best-selling-products-cart";
+
+    // Image Container
+    const imageContainer = document.createElement("div");
+    imageContainer.className = "cart-image-container";
+
+
+    // Product Image
+    const image = document.createElement("img");
+    image.className = "cart-image";
+    image.src = product.image;
+    image.alt = product.productName;
+
+    // Favourite Button
+    const favDiv = document.createElement("div");
+
+    const fav = document.createElement("img");
+    fav.src = "./images/favorite.png";
+    fav.alt = "Favourite";
+
+    favDiv.addEventListener("click", () => {
+      if (fav.src.includes("heart-red")) {
+        fav.src = "../images/favorite.png";
+      } else {
+        fav.src = "../images/heart-red.png";
+      }
+    });
+
+    favDiv.appendChild(fav);
+
+    imageContainer.append( image, favDiv);
+
+    // Product Details
+    const details = document.createElement("div");
+    details.className = "best-selling-product-details";
+
+    // Title
+    const title = document.createElement("div");
+    title.className = "cart-title";
+    title.textContent = product.productName;
+
+    // Rating
+    const rating = document.createElement("div");
+    rating.className = "rating";
+
+    for (let i = 1; i <= 5; i++) {
+      const star = document.createElement("span");
+      star.innerHTML = "★";
+      star.style.color = "#ffaa00";
+      rating.appendChild(star);
+    }
+
+    const vote = document.createElement("span");
+    vote.className = "vote";
+    vote.textContent = "(123)";
+    rating.appendChild(vote);
+
+    // Price
+    const price = document.createElement("div");
+    price.className = "price";
+
+    const currentPrice = document.createElement("span");
+    currentPrice.textContent = product.price;
+
+    const oldPrice = document.createElement("span");
+    oldPrice.className = "oldPrice";
+    oldPrice.textContent = product.oldPrice;
+
+    price.append(currentPrice, oldPrice);
+
+    details.append(title, rating, price);
+
+    // Append Everything
+    card.append(imageContainer, details);
+    cartRow.appendChild(card);
+  });
 
 topBar();
 banner();
 shopCategories();
 futuredCategories();
 flashBanner();
+service()
