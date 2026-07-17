@@ -1,25 +1,43 @@
 // TopBar
+
 function topBar() {
   fetch("./components/topBar.html")
     .then((response) => response.text())
     .then((data) => {
       document.getElementById("topBar").innerHTML = data;
 
-      let currentPage = window.location.pathname.split("/").pop();
+      const currentPage =
+        window.location.pathname.split("/").pop() || "index.html";
 
       const navLinks = document.querySelectorAll("nav a");
 
-      if (currentPage === "") {
-        currentPage = "index.html";
-      }
-
       navLinks.forEach((link) => {
-        if (link.getAttribute("href") === currentPage) {
+        const href = link.getAttribute("href");
+
+        link.classList.remove("active");
+
+
+        if (href === currentPage) {
           link.classList.add("active");
+        }
+
+        if (
+          currentPage === "index.html" &&
+          href.startsWith("#")
+        ) {
+          link.addEventListener("click", function () {
+            navLinks.forEach((navLink) => {
+              navLink.classList.remove("active");
+            });
+
+            this.classList.add("active");
+          });
         }
       });
     });
 }
+
+
 // Banner
 function banner() {
   fetch("./components/banner.html")
@@ -54,7 +72,7 @@ function banner() {
 
       shopNow.addEventListener("click", () => {
         console.log("Shop Clicked");
-        window.location.href = "products.html";
+        window.location.href = "#featured-products";
       });
 
       setInterval(() => {
@@ -410,140 +428,166 @@ function service() {
 
 const products = [
   {
-      productName: "Shoes",
-      image: "./images/shoe.png",
-      color: "#FFF8DC",
-      offer: "5%",
-      price: "₹4,959",
-      oldPrice: "₹5,299",
-    },
-    {
-      productName: "Hoodi",
-      image: "./images/hoodi.png",
-      color: "#FFE4E1",
-      offer: "10%",
-      price: "₹3,829",
-      oldPrice: "₹4,299",
-    },
-    {
-      productName: "Watch",
-      image: "./images/watch.png",
-      color: "#E8F5E9",
-      offer: "18%",
-      price: "₹1,699",
-      oldPrice: "₹2,099",
-    },
-    {
-      productName: "Bags",
-      image: "./images/handBag.png",
-      color: "#F3E5F5",
-      offer: "35%",
-      price: "₹6,939",
-      oldPrice: "₹8,299",
-    },
-    {
-      productName: "Accessories",
-      image: "./images/sunGlass.png",
-      color: "#FFF3E0",
-      offer: "20%",
-      price: "₹4,949",
-      oldPrice: "₹5,999",
-    },
-    {
-      productName: "Shoes",
-      image: "./images/shoe.png",
-      color: "#FFF8DC",
-      offer: "5%",
-      price: "₹4,959",
-      oldPrice: "₹5,299",
-    },
-  ];
+    productName: "Shoes",
+    image: "./images/shoe.png",
+    color: "#FFF8DC",
+    offer: "5%",
+    price: "₹4,959",
+    oldPrice: "₹5,299",
+  },
+  {
+    productName: "Hoodi",
+    image: "./images/hoodi.png",
+    color: "#FFE4E1",
+    offer: "10%",
+    price: "₹3,829",
+    oldPrice: "₹4,299",
+  },
+  {
+    productName: "Watch",
+    image: "./images/watch.png",
+    color: "#E8F5E9",
+    offer: "18%",
+    price: "₹1,699",
+    oldPrice: "₹2,099",
+  },
+  {
+    productName: "Bags",
+    image: "./images/handBag.png",
+    color: "#F3E5F5",
+    offer: "35%",
+    price: "₹6,939",
+    oldPrice: "₹8,299",
+  },
+  {
+    productName: "Accessories",
+    image: "./images/sunGlass.png",
+    color: "#FFF3E0",
+    offer: "20%",
+    price: "₹4,949",
+    oldPrice: "₹5,999",
+  },
+  {
+    productName: "Shoes",
+    image: "./images/shoe.png",
+    color: "#FFF8DC",
+    offer: "5%",
+    price: "₹4,959",
+    oldPrice: "₹5,299",
+  },
+];
 
-  const cartRow = document.querySelector(".best-selling-products");
+const cartRow = document.querySelector(".best-selling-products");
 
-  products.forEach((product) => {
-    // Card
-    const card = document.createElement("div");
-    card.className = "best-selling-products-cart";
+products.forEach((product) => {
+  // Card
+  const card = document.createElement("div");
+  card.className = "best-selling-products-cart";
 
-    // Image Container
-    const imageContainer = document.createElement("div");
-    imageContainer.className = "cart-image-container";
+  // Image Container
+  const imageContainer = document.createElement("div");
+  imageContainer.className = "cart-image-container";
 
+  // Product Image
+  const image = document.createElement("img");
+  image.className = "cart-image";
+  image.src = product.image;
+  image.alt = product.productName;
 
-    // Product Image
-    const image = document.createElement("img");
-    image.className = "cart-image";
-    image.src = product.image;
-    image.alt = product.productName;
+  // Favourite Button
+  const favDiv = document.createElement("div");
 
-    // Favourite Button
-    const favDiv = document.createElement("div");
+  const fav = document.createElement("img");
+  fav.src = "./images/favorite.png";
+  fav.alt = "Favourite";
 
-    const fav = document.createElement("img");
-    fav.src = "./images/favorite.png";
-    fav.alt = "Favourite";
-
-    favDiv.addEventListener("click", () => {
-      if (fav.src.includes("heart-red")) {
-        fav.src = "../images/favorite.png";
-      } else {
-        fav.src = "../images/heart-red.png";
-      }
-    });
-
-    favDiv.appendChild(fav);
-
-    imageContainer.append( image, favDiv);
-
-    // Product Details
-    const details = document.createElement("div");
-    details.className = "best-selling-product-details";
-
-    // Title
-    const title = document.createElement("div");
-    title.className = "cart-title";
-    title.textContent = product.productName;
-
-    // Rating
-    const rating = document.createElement("div");
-    rating.className = "rating";
-
-    for (let i = 1; i <= 5; i++) {
-      const star = document.createElement("span");
-      star.innerHTML = "★";
-      star.style.color = "#ffaa00";
-      rating.appendChild(star);
+  favDiv.addEventListener("click", () => {
+    if (fav.src.includes("heart-red")) {
+      fav.src = "../images/favorite.png";
+    } else {
+      fav.src = "../images/heart-red.png";
     }
-
-    const vote = document.createElement("span");
-    vote.className = "vote";
-    vote.textContent = "(123)";
-    rating.appendChild(vote);
-
-    // Price
-    const price = document.createElement("div");
-    price.className = "price";
-
-    const currentPrice = document.createElement("span");
-    currentPrice.textContent = product.price;
-
-    const oldPrice = document.createElement("span");
-    oldPrice.className = "oldPrice";
-    oldPrice.textContent = product.oldPrice;
-
-    price.append(currentPrice, oldPrice);
-
-    details.append(title, rating, price);
-
-    // Append Everything
-    card.append(imageContainer, details);
-    cartRow.appendChild(card);
   });
 
+  favDiv.appendChild(fav);
+
+  imageContainer.append(image, favDiv);
+
+  // Product Details
+  const details = document.createElement("div");
+  details.className = "best-selling-product-details";
+
+  // Title
+  const title = document.createElement("div");
+  title.className = "cart-title";
+  title.textContent = product.productName;
+
+  // Rating
+  const rating = document.createElement("div");
+  rating.className = "rating";
+
+  for (let i = 1; i <= 5; i++) {
+    const star = document.createElement("span");
+    star.innerHTML = "★";
+    star.style.color = "#ffaa00";
+    rating.appendChild(star);
+  }
+
+  const vote = document.createElement("span");
+  vote.className = "vote";
+  vote.textContent = "(123)";
+  rating.appendChild(vote);
+
+  // Price
+  const price = document.createElement("div");
+  price.className = "price";
+
+  const currentPrice = document.createElement("span");
+  currentPrice.textContent = product.price;
+
+  const oldPrice = document.createElement("span");
+  oldPrice.className = "oldPrice";
+  oldPrice.textContent = product.oldPrice;
+
+  price.append(currentPrice, oldPrice);
+
+  details.append(title, rating, price);
+
+  // Append Everything
+  card.append(imageContainer, details);
+  cartRow.appendChild(card);
+});
+
+function contact() {
+  fetch("/components/contact.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("contact-section").innerHTML = data;
+
+      const contactForm = document.getElementById("contactForm");
+
+      // If the form does not exist on this page, stop the function
+      if (!contactForm) {
+        return;
+      }
+
+      const successMessage = document.getElementById("successMessage");
+
+      contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        successMessage.textContent =
+          "Thank you! Your message has been sent successfully.";
+
+        contactForm.reset();
+      });
+    });
+}
+
+contact();
 topBar();
 banner();
 shopCategories();
 futuredCategories();
 flashBanner();
-service()
+service();
